@@ -1,0 +1,6 @@
+services:
+    _defaults:
+        public: false
+    
+    event_operation.operation_event_subscriber:
+        class: 'Jalismrs\EventOperationBundle\OperationEventSubscriber'
