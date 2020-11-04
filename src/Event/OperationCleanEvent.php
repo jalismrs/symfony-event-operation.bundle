@@ -1,14 +1,14 @@
 <?php
 declare(strict_types = 1);
 
-namespace Jalismrs\EventOperationBundle;
+namespace Jalismrs\Symfony\Bundle\JalismrsOperationEventBundle\Event;
 
 use Symfony\Contracts\EventDispatcher\Event;
 
 /**
- * Class CleanEvent
+ * Class OperationCleanEvent
  *
- * @package Jalismrs\EventOperationBundle
+ * @package Jalismrs\Symfony\Bundle\JalismrsOperationEventBundle\Event
  *
  * @codeCoverageIgnore
  */
