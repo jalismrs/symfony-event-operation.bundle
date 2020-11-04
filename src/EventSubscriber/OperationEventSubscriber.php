@@ -1,14 +1,16 @@
 <?php
 declare(strict_types = 1);
 
-namespace Jalismrs\EventOperationBundle;
+namespace Jalismrs\Symfony\Bundle\JalismrsOperationEventBundle\EventSubscriber;
 
-use Jalismrs\EventBundle\ConsoleEventSubscriberAbstract;
+use Jalismrs\Symfony\Bundle\JalismrsOperationEventBundle\Event\OperationCleanEvent;
+use Jalismrs\Symfony\Bundle\JalismrsOperationEventBundle\Event\OperationMarkEvent;
+use Jalismrs\Symfony\Common\ConsoleEventSubscriberAbstract;
 
 /**
  * Class OperationEventSubscriber
  *
- * @package Jalismrs\EventOperationBundle
+ * @package Jalismrs\Symfony\Bundle\JalismrsOperationEventBundle
  */
 class OperationEventSubscriber extends
     ConsoleEventSubscriberAbstract
@@ -18,6 +20,8 @@ class OperationEventSubscriber extends
      *
      * @static
      * @return string[]
+     *
+     * @codeCoverageIgnore
      */
     public static function getSubscribedEvents() : array
     {
@@ -30,9 +34,9 @@ class OperationEventSubscriber extends
     /**
      * onClean
      *
-     * @param \Jalismrs\EventOperationBundle\OperationCleanEvent $event
+     * @param \Jalismrs\Symfony\Bundle\JalismrsOperationEventBundle\Event\OperationCleanEvent $event
      *
-     * @return \Jalismrs\EventOperationBundle\OperationCleanEvent
+     * @return \Jalismrs\Symfony\Bundle\JalismrsOperationEventBundle\Event\OperationCleanEvent
      */
     public function onOperationClean(
         OperationCleanEvent $event
@@ -51,9 +55,9 @@ class OperationEventSubscriber extends
     /**
      * onMark
      *
-     * @param \Jalismrs\EventOperationBundle\OperationMarkEvent $event
+     * @param \Jalismrs\Symfony\Bundle\JalismrsOperationEventBundle\Event\OperationMarkEvent $event
      *
-     * @return \Jalismrs\EventOperationBundle\OperationMarkEvent
+     * @return \Jalismrs\Symfony\Bundle\JalismrsOperationEventBundle\Event\OperationMarkEvent
      */
     public function onOperationMark(
         OperationMarkEvent $event
