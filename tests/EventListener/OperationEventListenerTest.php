@@ -1,9 +1,9 @@
 <?php
 declare(strict_types = 1);
 
-namespace Tests\EventSubscriber;
+namespace Tests\EventListener;
 
-use Jalismrs\Symfony\Bundle\JalismrsOperationEventBundle\EventSubscriber\OperationEventSubscriber;
+use Jalismrs\Symfony\Bundle\JalismrsOperationEventBundle\EventListener\OperationEventListener;
 use Jalismrs\Symfony\Bundle\JalismrsOperationEventBundle\Event\OperationMarkEvent;
 use Jalismrs\Symfony\Bundle\JalismrsOperationEventBundle\Event\OperationCleanEvent;
 use PHPUnit\Framework\MockObject\MockObject;
@@ -11,13 +11,13 @@ use PHPUnit\Framework\TestCase;
 use Symfony\Component\Console\Style\SymfonyStyle;
 
 /**
- * Class OperationEventSubscriberTest
+ * Class OperationEventListenerTest
  *
- * @package Tests\EventSubscriber
+ * @package Tests\EventListener
  *
- * @covers \Jalismrs\Symfony\Bundle\JalismrsOperationEventBundle\EventSubscriber\OperationEventSubscriber
+ * @covers \Jalismrs\Symfony\Bundle\JalismrsOperationEventBundle\EventListener\OperationEventListener
  */
-class OperationEventSubscriberTest extends
+class OperationEventListenerTest extends
     TestCase
 {
     /**
@@ -106,15 +106,14 @@ class OperationEventSubscriberTest extends
     /**
      * createSUT
      *
-     * @return \Jalismrs\Symfony\Bundle\JalismrsOperationEventBundle\EventSubscriber\OperationEventSubscriber
+     * @return \Jalismrs\Symfony\Bundle\JalismrsOperationEventBundle\EventListener\OperationEventListener
      */
-    private function createSUT() : OperationEventSubscriber
+    private function createSUT() : OperationEventListener
     {
         // arrange
-        $systemUnderTest = new OperationEventSubscriber();
+        $systemUnderTest = new OperationEventListener();
         
         // act
-        $systemUnderTest->activate();
         $systemUnderTest->setStyle($this->mockStyle);
         
         return $systemUnderTest;
