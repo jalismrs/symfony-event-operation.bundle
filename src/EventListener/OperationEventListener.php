@@ -1,36 +1,20 @@
 <?php
 declare(strict_types = 1);
 
-namespace Jalismrs\Symfony\Bundle\JalismrsOperationEventBundle\EventSubscriber;
+namespace Jalismrs\Symfony\Bundle\JalismrsOperationEventBundle\EventListener;
 
 use Jalismrs\Symfony\Bundle\JalismrsOperationEventBundle\Event\OperationCleanEvent;
 use Jalismrs\Symfony\Bundle\JalismrsOperationEventBundle\Event\OperationMarkEvent;
-use Jalismrs\Symfony\Common\ConsoleEventSubscriberAbstract;
+use Jalismrs\Symfony\Common\ConsoleEventListenerAbstract;
 
 /**
- * Class OperationEventSubscriber
+ * Class OperationEventListener
  *
  * @package Jalismrs\Symfony\Bundle\JalismrsOperationEventBundle
  */
-class OperationEventSubscriber extends
-    ConsoleEventSubscriberAbstract
+class OperationEventListener extends
+    ConsoleEventListenerAbstract
 {
-    /**
-     * getSubscribedEvents
-     *
-     * @static
-     * @return string[]
-     *
-     * @codeCoverageIgnore
-     */
-    public static function getSubscribedEvents() : array
-    {
-        return [
-            OperationCleanEvent::class => 'onOperationClean',
-            OperationMarkEvent::class  => 'onOperationMark',
-        ];
-    }
-    
     /**
      * onClean
      *
@@ -41,13 +25,11 @@ class OperationEventSubscriber extends
     public function onOperationClean(
         OperationCleanEvent $event
     ) : OperationCleanEvent {
-        if ($this->isActive()) {
-            $message = "Nettoyage des entités: {$event->getCount()}";
-            
-            $this
-                ->getStyle()
-                ->section($message);
-        }
+        $message = "Nettoyage des entités: {$event->getCount()}";
+        
+        $this
+            ->getStyle()
+            ->section($message);
         
         return $event;
     }
@@ -62,13 +44,11 @@ class OperationEventSubscriber extends
     public function onOperationMark(
         OperationMarkEvent $event
     ) : OperationMarkEvent {
-        if ($this->isActive()) {
-            $message = "Marquage des entités: {$event->getCount()}";
-            
-            $this
-                ->getStyle()
-                ->section($message);
-        }
+        $message = "Marquage des entités: {$event->getCount()}";
+        
+        $this
+            ->getStyle()
+            ->section($message);
         
         return $event;
     }
